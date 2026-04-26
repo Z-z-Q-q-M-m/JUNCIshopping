@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>钧有遗香 - 千载钧瓷创新传承破局者</title>
+    <style>
+        :root {
+            --bg-primary: #fdf8f0;
+            --bg-card: #fffdf7;
+            --text-primary: #3b2b1f;
+            --text-secondary: #6b5640;
+            --text-light: #8b7355;
+            --accent-gold: #b8860b;
+            --accent-gold-light: #d4a745;
+            --accent-deep: #5c3a21;
+            --accent-warm: #c97a3a;
+            --border-warm: #dcc8a0;
+            --border-light: #e8dcc8;
+            --shadow-soft: 0 4px 20px rgba(70, 40, 15, 0.07);
+            --shadow-card: 0 8px 28px rgba(70, 40, 15, 0.10);
+            --shadow-hover: 0 14px 36px rgba(70, 40, 15, 0.16);
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --font-calligraphy: 'STKaiti', 'KaiTi', '楷体', 'Noto Serif SC', 'Source Han Serif SC', serif;
+            --font-display: 'STSong', 'SimSun', '宋体', 'Noto Serif SC', serif;
+            --font-body: 'PingFang SC', 'Microsoft YaHei', '微软雅黑', 'Hiragino Sans GB', sans-serif;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            font-size: 15px;
+            height: 100%;
+        }
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.55;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            background-image:
+                radial-gradient(ellipse at 15% 10%, rgba(200, 150, 80, 0.04) 0%, transparent 55%),
+                radial-gradient(ellipse at 80% 30%, rgba(180, 120, 50, 0.03) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 70%, rgba(160, 100, 40, 0.03) 0%, transparent 50%);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 古典纹样背景层 */
+        .cloud-pattern-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.022;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120' viewBox='0 0 120 120'%3E%3Cpath d='M20,55 Q25,32 42,28 Q48,12 62,18 Q72,6 82,22 Q95,18 100,32 Q110,36 108,52 Q98,56 88,50 Q82,60 68,56 Q58,62 46,58 Q34,64 24,56 Z' fill='%235c3a21' opacity='0.5'/%3E%3Ccircle cx='35' cy='42' r='5' fill='%235c3a21' opacity='0.35'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 140px 140px;
+            animation: cloudDrift 100s linear infinite;
+        }
+        @keyframes cloudDrift {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 140px 0;
+            }
+        }
+        .meander-pattern-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.016;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect x='4' y='4' width='32' height='32' fill='none' stroke='%235c3a21' stroke-width='2.5' rx='1'/%3E%3Crect x='9' y='9' width='22' height='22' fill='none' stroke='%235c3a21' stroke-width='1.5' rx='1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 55px 55px;
+        }
+        .kiln-glow-layer {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            inset: 0;
+            background: radial-gradient(ellipse at 22% 18%, rgba(122, 154, 138, 0.04) 0%, transparent 40%),
+                radial-gradient(ellipse at 75% 25%, rgba(155, 122, 138, 0.03) 0%, transparent 38%),
+                radial-gradient(ellipse at 45% 60%, rgba(106, 138, 154, 0.03) 0%, transparent 42%),
+                radial-gradient(ellipse at 60% 80%, rgba(176, 138, 138, 0.03) 0%, transparent 35%);
+            animation: kilnGlow 16s ease-in-out infinite alternate;
+        }
+        @keyframes kilnGlow {
+            0% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+            100% {
+                opacity: 0.9;
+                transform: scale(1.03);
+            }
+        }
+
+        /* 顶部公告栏 */
+        .top-banner {
+            background: linear-gradient(135deg, #5c3a21 0%, #7a4f2d 30%, #5c3a21 60%, #4a2818 100%);
+            color: #f0d9a0;
+            text-align: center;
+            padding: 5px 16px;
+            font-size: 0.75rem;
+            letter-spacing: 0.12em;
+            position: relative;
+            z-index: 10;
+            font-family: var(--font-calligraphy);
+            flex-shrink: 0;
+        }
+        .top-banner span {
+            display: inline-block;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+        @keyframes shimmer {
+            0%,
+            100% {
+                opacity: 0.75;
+            }
+            50% {
+                opacity: 1;
+            }
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(253, 248, 240, 0.9);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid var(--border-light);
+            padding: 0 24px;
+            transition: all var(--transition);
+            flex-shrink: 0;
+        }
+        .navbar.scrolled {
+            box-shadow: 0 2px 16px rgba(70, 40, 15, 0.08);
+            background: rgba(253, 248, 240, 0.96);
+        }
+        .navbar-inner {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 52px;
+            position: relative;
+            z-index: 2;
+        }
+        .nav-brand {
+            font-family: var(--font-calligraphy);
+            font-size: 1.35rem;
+            font-weight: bold;
+            color: var(--accent-deep);
+            letter-spacing: 0.07em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: color var(--transition);
+            flex-shrink: 0;
+        }
+        .nav-brand:hover {
+            color: var(--accent-gold);
+        }
+        .nav-brand .brand-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #c97a3a, #8b4513);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fdf8f0;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 0 3px rgba(180, 120, 40, 0.18);
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 4px;
+            align-items: center;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            padding: 6px 13px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            transition: all var(--transition);
+            font-family: var(--font-calligraphy);
+            white-space: nowrap;
+            cursor: pointer;
+        }
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent-gold);
+            background: rgba(180, 120, 40, 0.07);
+        }
+        .nav-cart-btn {
+            position: relative;
+            background: var(--accent-deep);
+            color: #fdf8f0 !important;
+            padding: 7px 16px !important;
+            border-radius: 20px !important;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all var(--transition);
+            border: none;
+            font-family: var(--font-calligraphy);
+            font-size: 0.8rem;
+        }
+        .nav-cart-btn:hover {
+            background: var(--accent-gold) !important;
+            color: #fff !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(180, 120, 40, 0.35);
+        }
+        .cart-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #d4533a;
+            color: #fff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.65rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-family: var(--font-body);
+            transition: transform 0.3s;
+        }
+        .cart-badge.bounce {
+            animation: badgeBounce 0.5s ease;
+        }
+        @keyframes badgeBounce {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            30% {
+                transform: scale(1.35);
+            }
+            60% {
+                transform: scale(0.85);
+            }
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 6px;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 101;
+        }
+        .mobile-menu-toggle span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-deep);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .mobile-menu-toggle.open span:nth-child(1) {
+            transform: rotate(45deg) translate(4px, 4px);
+        }
+        .mobile-menu-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .mobile-menu-toggle.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(4px, -4px);
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(253, 248, 240, 0.98);
+                backdrop-filter: blur(20px);
+                flex-direction: column;
+                padding: 80px 24px 24px;
+                gap: 6px;
+                transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+                z-index: 100;
+            }
+            .nav-links.mobile-open {
+                right: 0;
+            }
+            .nav-links a {
+                font-size: 0.95rem;
+                padding: 10px 16px;
+                width: 100%;
+                text-align: center;
+            }
+            .mobile-menu-toggle {
+                display: flex;
+            }
+            .nav-cart-btn {
+                padding: 7px 14px !important;
+                font-size: 0.78rem;
+            }
+            .nav-brand {
+                font-size: 1.15rem;
+            }
+        }
+
+        /* 主体 */
+        .main-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+
+        /* 英雄区 */
+        .hero-section {
+            text-align: center;
+            padding: 24px 16px 12px;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .hero-badge {
+            display: inline-block;
+            background: rgba(180, 120, 40, 0.08);
+            color: var(--accent-gold);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            letter-spacing: 0.16em;
+            font-family: var(--font-calligraphy);
+            margin-bottom: 8px;
+            border: 1px solid rgba(180, 120, 40, 0.18);
+        }
+        .hero-title {
+            font-family: var(--font-calligraphy);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            color: var(--accent-deep);
+            letter-spacing: 0.08em;
+            margin-bottom: 2px;
+            line-height: 1.2;
+        }
+        .hero-title .highlight {
+            color: var(--accent-gold);
+        }
+        .hero-subtitle {
+            font-family: var(--font-display);
+            font-size: 0.85rem;
+            color: var(--text-light);
+            letter-spacing: 0.12em;
+            margin-bottom: 2px;
+        }
+        .hero-tagline {
+            font-family: var(--font-calligraphy);
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.14em;
+            margin-bottom: 8px;
+        }
+        .hero-divider {
+            width: 50px;
+            height: 1.5px;
+            background: linear-gradient(to right, transparent, var(--accent-gold), transparent);
+            margin: 0 auto 6px;
+            border-radius: 1px;
+        }
+
+        /* 区域标题 */
+        .section-header {
+            text-align: center;
+            margin: 18px 0 14px;
+            flex-shrink: 0;
+        }
+        .section-header .en-label {
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            color: var(--accent-gold-light);
+            text-transform: uppercase;
+            font-family: var(--font-body);
+            margin-bottom: 2px;
+        }
+        .section-header h2 {
+            font-family: var(--font-calligraphy);
+            font-size: 1.4rem;
+            color: var(--accent-deep);
+            letter-spacing: 0.06em;
+            margin-bottom: 2px;
+        }
+        .section-header .section-desc {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            letter-spacing: 0.04em;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .section-header .mini-divider {
+            width: 28px;
+            height: 1.5px;
+            background: var(--accent-gold);
+            margin: 6px auto 0;
+            border-radius: 1px;
+            opacity: 0.55;
+        }
+
+        /* 产品网格 - 3列 */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 16px;
+            flex-shrink: 0;
+        }
+        @media (max-width: 960px) {
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+        }
+        @media (max-width: 560px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+        }
+
+        /* 产品卡片 */
+        .product-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-card);
+            transition: all var(--transition);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            cursor: default;
+        }
+        .product-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--border-warm);
+        }
+        .product-card.combo-card {
+            border-left: 3px solid var(--accent-gold);
+            background: linear-gradient(135deg, #fffdf7 0%, #fffef9 30%, #fffdf7 100%);
+        }
+        .combo-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--accent-gold);
+            color: #fff;
+            padding: 4px 10px;
+            border-radius: 14px;
+            font-size: 0.6rem;
+            letter-spacing: 0.08em;
+            font-family: var(--font-calligraphy);
+            z-index: 10;
+            font-weight: bold;
+            box-shadow: 0 2px 8px rgba(180, 120, 40, 0.25);
+            pointer-events: none;
+        }
+
+        /* 轮播图容器 */
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+            background: #fdf5e8;
+            cursor: pointer;
+            user-select: none;
+        }
+        .carousel-track {
+            display: flex;
+            height: 100%;
+            transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform;
+        }
+        .carousel-slide {
+            min-width: 100%;
+            height: 100%;
+            position: relative;
+            flex-shrink: 0;
+        }
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .carousel-slide .slide-label {
+            position: absolute;
+            bottom: 8px;
+            left: 8px;
+            background: rgba(60, 25, 10, 0.78);
+            color: #f0d9a0;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.6rem;
+            letter-spacing: 0.06em;
+            font-family: var(--font-calligraphy);
+            backdrop-filter: blur(4px);
+            z-index: 3;
+            pointer-events: none;
+        }
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.75);
+            border: 1px solid rgba(180, 140, 80, 0.3);
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            transition: all 0.25s;
+            color: var(--accent-deep);
+            backdrop-filter: blur(4px);
+            opacity: 0;
+            pointer-events: none;
+        }
+        .carousel-wrapper:hover .carousel-arrow {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .carousel-arrow:hover {
+            background: #fff;
+            border-color: var(--accent-gold);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+        }
+        .carousel-arrow-left {
+            left: 6px;
+        }
+        .carousel-arrow-right {
+            right: 6px;
+        }
+        .carousel-dots {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            display: flex;
+            gap: 5px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .carousel-dots .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(180, 140, 80, 0.4);
+            transition: all 0.3s;
+            cursor: pointer;
+            pointer-events: auto;
+            flex-shrink: 0;
+        }
+        .carousel-dots .dot.active {
+            background: var(--accent-gold);
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 6px rgba(180, 120, 40, 0.4);
+            transform: scale(1.2);
+        }
+
+        /* 系列标签 */
+        .card-series-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px 0;
+            flex-wrap: wrap;
+        }
+        .card-series-tag {
+            font-size: 0.6rem;
+            padding: 3px 9px;
+            border-radius: 12px;
+            background: rgba(180, 120, 40, 0.07);
+            color: var(--accent-gold);
+            border: 1px solid rgba(180, 120, 40, 0.16);
+            letter-spacing: 0.05em;
+            font-family: var(--font-calligraphy);
+            white-space: nowrap;
+        }
+        .card-variant-indicator {
+            font-size: 0.58rem;
+            color: var(--text-light);
+            letter-spacing: 0.04em;
+            font-family: var(--font-calligraphy);
+            margin-left: auto;
+        }
+
+        /* 卡片正文 */
+        .product-card .card-body {
+            padding: 8px 14px 12px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-body .card-title {
+            font-family: var(--font-calligraphy);
+            font-size: 1rem;
+            color: var(--accent-deep);
+            letter-spacing: 0.04em;
+            margin-bottom: 2px;
+            line-height: 1.3;
+        }
+        .card-body .card-subtitle {
+            font-size: 0.68rem;
+            color: var(--text-light);
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+            font-family: var(--font-display);
+            line-height: 1.3;
+        }
+        .card-body .card-desc {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            line-height: 1.45;
+            flex: 1;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .card-body .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+            margin-bottom: 8px;
+        }
+        .card-body .card-tag {
+            font-size: 0.58rem;
+            padding: 2px 7px;
+            border-radius: 10px;
+            background: rgba(180, 120, 40, 0.05);
+            color: var(--accent-gold);
+            border: 1px solid rgba(180, 120, 40, 0.12);
+            letter-spacing: 0.03em;
+            font-family: var(--font-calligraphy);
+        }
+        .card-price-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+        }
+        .card-price {
+            font-size: 1.15rem;
+            font-weight: bold;
+            color: #a0522d;
+            font-family: var(--font-display);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+            transition: all 0.3s;
+        }
+        .card-price .currency {
+            font-size: 0.7rem;
+            font-weight: normal;
+        }
+        .card-price .original {
+            text-decoration: line-through;
+            color: #b0a090;
+            font-size: 0.68rem;
+            margin-left: 4px;
+            font-weight: normal;
+        }
+        .card-price .price-range {
+            font-size: 0.6rem;
+            color: var(--text-light);
+            font-weight: normal;
+            letter-spacing: 0.03em;
+        }
+        .btn-add-cart {
+            background: var(--accent-deep);
+            color: #fdf8f0;
+            border: none;
+            padding: 7px 14px;
+            border-radius: 18px;
+            cursor: pointer;
+            font-family: var(--font-calligraphy);
+            font-size: 0.7rem;
+            letter-spacing: 0.04em;
+            transition: all var(--transition);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .btn-add-cart:hover {
+            background: var(--accent-gold);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(180, 120, 40, 0.3);
+        }
+        .btn-add-cart.in-cart {
+            background: #6b8e5a;
+            pointer-events: none;
+        }
+
+        /* 品牌故事 */
+        .brand-story-section {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 8px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            font-family: var(--font-calligraphy);
+            letter-spacing: 0.04em;
+            padding: 14px 16px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 253, 247, 0.4);
+            border: 1px solid rgba(220, 200, 160, 0.25);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+        .brand-story-section p {
+            margin: 0;
+        }
+        .brand-story-section p+p {
+            margin-top: 6px;
+        }
+
+        /* 页脚 */
+        .site-footer {
+            text-align: center;
+            padding: 12px 16px;
+            color: var(--text-light);
+            font-size: 0.68rem;
+            letter-spacing: 0.06em;
+            border-top: 1px solid var(--border-light);
+            font-family: var(--font-calligraphy);
+            background: rgba(255, 253, 247, 0.3);
+            flex-shrink: 0;
+        }
+        .site-footer .footer-brand {
+            font-size: 1rem;
+            color: var(--accent-deep);
+            font-weight: bold;
+            letter-spacing: 0.08em;
+        }
+
+        /* 购物车侧边栏 */
+        .cart-sidebar-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(30, 15, 5, 0.5);
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s;
+        }
+        .cart-sidebar-overlay.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .cart-sidebar {
+            position: fixed;
+            top: 0;
+            right: -420px;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: var(--bg-card);
+            z-index: 201;
+            box-shadow: -8px 0 40px rgba(0, 0, 0, 0.2);
+            transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            display: flex;
+            flex-direction: column;
+            border-left: 1px solid var(--border-light);
+        }
+        .cart-sidebar.open {
+            right: 0;
+        }
+        .cart-sidebar-header {
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-calligraphy);
+            letter-spacing: 0.05em;
+        }
+        .cart-sidebar-header h3 {
+            font-size: 1.15rem;
+            color: var(--accent-deep);
+        }
+        .cart-close-btn {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            cursor: pointer;
+            color: var(--text-secondary);
+            transition: color 0.3s;
+            padding: 4px 8px;
+            border-radius: 50%;
+        }
+        .cart-close-btn:hover {
+            color: #c0392b;
+            background: rgba(0, 0, 0, 0.04);
+        }
+        .cart-items-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 12px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .cart-empty {
+            text-align: center;
+            padding: 50px 16px;
+            color: #b0a090;
+            font-family: var(--font-calligraphy);
+            letter-spacing: 0.05em;
+            font-size: 0.85rem;
+        }
+        .cart-item {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+            border-radius: var(--radius-md);
+            background: #fdfaf5;
+            border: 1px solid var(--border-light);
+            transition: all 0.3s;
+        }
+        .cart-item:hover {
+            border-color: var(--border-warm);
+            box-shadow: var(--shadow-soft);
+        }
+        .cart-item-emoji {
+            font-size: 1.8rem;
+            flex-shrink: 0;
+        }
+        .cart-item-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .cart-item-info .ci-name {
+            font-family: var(--font-calligraphy);
+            font-weight: bold;
+            color: var(--accent-deep);
+            font-size: 0.8rem;
+            letter-spacing: 0.03em;
+        }
+        .cart-item-info .ci-variant {
+            font-size: 0.65rem;
+            color: var(--text-light);
+            letter-spacing: 0.03em;
+        }
+        .cart-item-info .ci-price {
+            color: #a0522d;
+            font-weight: bold;
+            font-size: 0.78rem;
+        }
+        .cart-item-qty {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .cart-item-qty button {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 1px solid var(--border-warm);
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-deep);
+            line-height: 1;
+        }
+        .cart-item-qty button:hover {
+            background: var(--accent-deep);
+            color: #fff;
+            border-color: var(--accent-deep);
+        }
+        .cart-item-qty span {
+            min-width: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .cart-item-remove {
+            background: none;
+            border: none;
+            color: #c0a090;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: color 0.3s;
+            padding: 4px;
+        }
+        .cart-item-remove:hover {
+            color: #c0392b;
+        }
+        .cart-sidebar-footer {
+            padding: 12px 20px 18px;
+            border-top: 1px solid var(--border-light);
+        }
+        .cart-total {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            font-weight: bold;
+            color: var(--accent-deep);
+            margin-bottom: 10px;
+            font-family: var(--font-calligraphy);
+            letter-spacing: 0.04em;
+        }
+        .btn-checkout {
+            width: 100%;
+            padding: 11px;
+            background: var(--accent-deep);
+            color: #fdf8f0;
+            border: none;
+            border-radius: 24px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            font-family: var(--font-calligraphy);
+            letter-spacing: 0.06em;
+            transition: all var(--transition);
+        }
+        .btn-checkout:hover {
+            background: var(--accent-gold);
+            box-shadow: 0 6px 18px rgba(180, 120, 40, 0.35);
+            transform: translateY(-1px);
+        }
+        .btn-checkout:disabled {
+            background: #c0b8a8;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: #3b2b1f;
+            color: #fdf8f0;
+            padding: 10px 22px;
+            border-radius: 24px;
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            z-index: 300;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            pointer-events: none;
+            font-family: var(--font-calligraphy);
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.22);
+            border: 1px solid rgba(200, 160, 100, 0.25);
+        }
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 16px 10px 6px;
+            }
+            .products-grid {
+                gap: 10px;
+            }
+            .product-card .card-body {
+                padding: 8px 10px 8px;
+            }
+            .card-body .card-title {
+                font-size: 0.85rem;
+            }
+            .card-body .card-desc {
+                font-size: 0.65rem;
+            }
+            .card-price {
+                font-size: 0.95rem;
+            }
+            .btn-add-cart {
+                padding: 6px 10px;
+                font-size: 0.65rem;
+            }
+            .cart-sidebar {
+                max-width: 100%;
+            }
+            .brand-story-section {
+                font-size: 0.7rem;
+                padding: 10px 12px;
+            }
+            .carousel-arrow {
+                width: 26px;
+                height: 26px;
+                font-size: 0.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cloud-pattern-bg" aria-hidden="true"></div>
+    <div class="meander-pattern-bg" aria-hidden="true"></div>
+    <div class="kiln-glow-layer" aria-hidden="true"></div>
+
+    <div class="top-banner"><span>✦ 千载钧瓷 · 创新传承 · 钧有遗香 ✦ 新品上市 · 限时包邮</span></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <a class="nav-brand" href="#"><span class="brand-icon">钧</span>钧有遗香</a>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="菜单"><span></span><span></span><span></span></button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="active">首页</a></li>
+                <li><a href="#products">产品系列</a></li>
+                <li><a href="#about">品牌故事</a></li>
+                <li><a href="#contact">联系我们</a></li>
+                <li><button class="nav-cart-btn" id="navCartBtn">🛒 购物车 <span class="cart-badge" id="cartBadge" style="display:none;">0</span></button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <section class="hero-section" id="home">
+            <div class="hero-badge">非遗传承 · 原创艺术</div>
+            <h1 class="hero-title">钧<span class="highlight">有</span>遗香</h1>
+            <p class="hero-subtitle">Jun Has a Lingering Fragrance</p>
+            <p class="hero-tagline">穿越千年瓷韵 · 品味华夏风华</p>
+            <div class="hero-divider"></div>
+        </section>
+
+        <div class="section-header" id="products">
+            <div class="en-label">Original Series & Combo</div>
+            <h2>原创系列 · 窑变之美</h2>
+            <p class="section-desc">六款精选产品 · 单品与超值套餐任您选择</p>
+            <div class="mini-divider"></div>
+        </div>
+
+        <div class="products-grid" id="productsGrid"></div>
+
+        <div class="section-header" id="about">
+            <div class="en-label">Brand Story</div>
+            <h2>品牌故事</h2>
+            <p class="section-desc">钧有遗香——千载钧瓷创新传承破局者</p>
+            <div class="mini-divider"></div>
+        </div>
+        <div class="brand-story-section">
+            <p>我们利用钧瓷的多孔性与吸附性，将天然植物香料与钧瓷相结合，开发出具有舒缓身心、放松减压等功效的钧瓷香薰产品。结合盲盒的随机趣味性，每一次开启都有机会遇见不同的生肖形象。</p>
+            <p>雅韵与创意惊喜的融合，窑变艺术的个性化展现——钧有遗香，味华夏风华，品千年瓷韵。</p>
+        </div>
+    </div>
+
+    <footer class="site-footer" id="contact">
+        <p class="footer-brand">钧有遗香</p>
+        <p>千载钧瓷创新传承破局者 · 原创艺术 · 窑变之美</p>
+        <p style="margin-top:4px;">© 2026 钧有遗香 | 联系我们：service@junyixiang.com</p>
+    </footer>
+
+    <div class="cart-sidebar-overlay" id="cartOverlay"></div>
+    <div class="cart-sidebar" id="cartSidebar">
+        <div class="cart-sidebar-header"><h3>🛒 我的购物车</h3><button class="cart-close-btn" id="cartCloseBtn">✕</button></div>
+        <div class="cart-items-list" id="cartItemsList"><div class="cart-empty">购物车空空如也<br>去挑选心仪的钧瓷吧~</div></div>
+        <div class="cart-sidebar-footer">
+            <div class="cart-total"><span>合计：</span><span id="cartTotal">¥0.00</span></div>
+            <button class="btn-checkout" id="btnCheckout" disabled>立即结算</button>
+        </div>
+    </div>
+    <div class="toast" id="toast"></div>
+
+    <script>
+        (function() {
+            // ==================== 产品数据 ====================
+            // 图片使用占位URL，请替换为您自己的图片路径
+            const products = [{
+                id: 'p1',
+                type: 'single',
+                series: '香薰盲盒系列',
+                title: '钧瓷十二生肖盲盒',
+                subtitle: '随机惊喜 · 窑变艺术',
+                desc: '十二生肖钧瓷杯，每件窑变效果独一无二，兼具收藏与实用价值。',
+                tags: ['盲盒', '生肖', '香薰', '窑变'],
+                variants: [
+                    { label: '基础款', price: 49, image: './1.png' },
+                    { label: '礼盒款', price: 65, image: './1.png' }
+                ],
+                color: '#f5ede0',
+                emoji: '🫙',
+                currentVariant: 0
+            }, {
+                id: 'p2',
+                type: 'single',
+                series: '吊坠手绳系列',
+                title: '钧瓷生肖手绳',
+                subtitle: '简约时尚 · 窑变魅力',
+                desc: '十二生肖钧瓷吊坠手绳，内置香薰材料散发淡雅香气，佩戴舒适且时尚百搭。',
+                tags: ['手绳', '生肖吊坠', '香道', '饰品'],
+                variants: [
+                    { label: '基础款', price: 29, image: './3.jpg' },
+                    { label: '礼盒款', price: 39, image: './3.jpg' }
+                ],
+                color: '#f0e8da',
+                emoji: '📿',
+                currentVariant: 0
+            }, {
+                id: 'p3',
+                type: 'single',
+                series: '香薰系列',
+                title: '钧瓷生肖香薰',
+                subtitle: '舒缓身心 · 雅韵生活',
+                desc: '天然植物香料与钧瓷结合，开发舒缓身心功效产品，多款可选满足不同需求。',
+                tags: ['香薰', '生肖', '舒缓', '精品'],
+                variants: [
+                    { label: '基础款', price: 65, image: './5.png' },
+                    { label: '国风标准礼盒款', price: 79, image: './5.png' },
+                    { label: '高端底座倒流香款', price: 139, image: './5.png' }
+                ],
+                color: '#eee4d8',
+                emoji: '🔥',
+                currentVariant: 0
+            }, {
+                id: 'p4',
+                type: 'combo',
+                series: '超值套餐',
+                title: '盲盒+生肖手绳 套餐',
+                subtitle: '组合购买 · 更优惠',
+                desc: '钧瓷十二生肖盲盒搭配生肖手绳，一次拥有两款热门单品，送礼自用皆宜。',
+                tags: ['套餐', '盲盒', '手绳', '超值'],
+                variants: [
+                    { label: '套餐组合', price: 75, image: './6.png' }
+                    
+                ],
+                color: '#faf5e8',
+                emoji: '🎁',
+                currentVariant: 0,
+                isCombo: true
+            }, {
+                id: 'p5',
+                type: 'combo',
+                series: '超值套餐',
+                title: '盲盒+生肖香薰 套餐',
+                subtitle: '香韵加倍 · 双重享受',
+                desc: '盲盒惊喜与香薰舒缓完美组合，享受钧瓷窑变艺术与天然香氛的双重魅力。',
+                tags: ['套餐', '盲盒', '香薰', '超值'],
+                variants: [
+                    { label: '套餐组合', price: 115, image: './2.png' }
+                   
+                ],
+                color: '#faf6ec',
+                emoji: '✨',
+                currentVariant: 0,
+                isCombo: true
+            }, {
+                id: 'p6',
+                type: 'combo',
+                series: '超值套餐',
+                title: '三件全套（盲盒+手绳+香薰）',
+                subtitle: '全套收藏 · 一步到位',
+                desc: '盲盒、手绳、香薰三件全套组合，一次集齐经典系列，享受最大优惠力度。',
+                tags: ['全套', '盲盒', '手绳', '香薰', '超值'],
+                variants: [
+                    { label: '全套组合', price: 155, image: './7.png' }
+                ],
+                color: '#fdf8ed',
+                emoji: '🏆',
+                currentVariant: 0,
+                isCombo: true
+            }];
+
+            // 为每个产品保存当前轮播索引
+            const carouselStates = {};
+            products.forEach(p => { carouselStates[p.id] = 0; });
+            // 自动轮播定时器
+            const carouselTimers = {};
+
+            // ==================== 购物车状态 ====================
+            let cart = [];
+            let toastTimer = null;
+            try {
+                const savedCart = localStorage.getItem('junyixiang_cart_v3');
+                if (savedCart) cart = JSON.parse(savedCart);
+            } catch (e) {}
+
+            function saveCart() { try { localStorage.setItem('junyixiang_cart_v3', JSON.stringify(cart)); } catch (
+                e) {} }
+
+            // ==================== DOM引用 ====================
+            const productsGrid = document.getElementById('productsGrid');
+            const cartSidebar = document.getElementById('cartSidebar');
+            const cartOverlay = document.getElementById('cartOverlay');
+            const cartItemsList = document.getElementById('cartItemsList');
+            const cartTotal = document.getElementById('cartTotal');
+            const cartBadge = document.getElementById('cartBadge');
+            const btnCheckout = document.getElementById('btnCheckout');
+            const toast = document.getElementById('toast');
+            const navLinks = document.getElementById('navLinks');
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const navbar = document.getElementById('navbar');
+
+            function showToast(msg) {
+                if (toastTimer) clearTimeout(toastTimer);
+                toast.textContent = msg;
+                toast.classList.add('show');
+                toastTimer = setTimeout(() => { toast.classList.remove('show'); }, 2000);
+            }
+
+            // ==================== 轮播图逻辑 ====================
+            function goToSlide(productId, index) {
+                const track = document.querySelector(`.carousel-track[data-product-id="${productId}"]`);
+                if (!track) return;
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+                const totalSlides = product.variants.length;
+                const safeIndex = ((index % totalSlides) + totalSlides) % totalSlides;
+                track.style.transform = `translateX(-${safeIndex * 100}%)`;
+
+                // 更新指示点
+                const dotsContainer = document.querySelector(`.carousel-dots[data-product-id="${productId}"]`);
+                if (dotsContainer) {
+                    dotsContainer.querySelectorAll('.dot').forEach((dot, i) => {
+                        dot.classList.toggle('active', i === safeIndex);
+                    });
+                }
+                // 更新款式指示文字
+                const variantIndicator = document.getElementById(`variant-indicator-${productId}`);
+                if (variantIndicator && product.variants[safeIndex]) {
+                    variantIndicator.textContent = `${safeIndex + 1}/${totalSlides}`;
+                }
+                // 更新价格（仅单品）
+                const priceEl = document.getElementById(`price-${productId}`);
+                if (priceEl && product.type === 'single' && product.variants[safeIndex]) {
+                    const v = product.variants[safeIndex];
+                    priceEl.innerHTML =
+                        `<span class="currency">¥</span>${v.price.toFixed(2)}<span class="price-range"> / ${v.label}</span>`;
+                }
+                // 更新状态
+                carouselStates[productId] = safeIndex;
+            }
+
+            function nextSlide(productId) {
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+                const current = carouselStates[productId] || 0;
+                goToSlide(productId, current + 1);
+                resetAutoPlay(productId);
+            }
+
+            function prevSlide(productId) {
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+                const current = carouselStates[productId] || 0;
+                goToSlide(productId, current - 1);
+                resetAutoPlay(productId);
+            }
+
+            function startAutoPlay(productId) {
+                stopAutoPlay(productId);
+                carouselTimers[productId] = setInterval(() => {
+                    nextSlide(productId);
+                }, 4000);
+            }
+
+            function stopAutoPlay(productId) {
+                if (carouselTimers[productId]) {
+                    clearInterval(carouselTimers[productId]);
+                    carouselTimers[productId] = null;
+                }
+            }
+
+            function resetAutoPlay(productId) {
+                stopAutoPlay(productId);
+                startAutoPlay(productId);
+            }
+
+            // 挂载到window
+            window._junNextSlide = nextSlide;
+            window._junPrevSlide = prevSlide;
+            window._junGoToSlide = goToSlide;
+
+            // ==================== 购物车逻辑 ====================
+            function getCartItemIndex(productId, variantLabel) {
+                return cart.findIndex(i => i.productId === productId && i.variantLabel === variantLabel);
+            }
+
+            function addToCart(productId) {
+                const product = products.find(p => p.id === productId);
+                if (!product) return;
+                const currentIdx = carouselStates[productId] || 0;
+                const variant = product.variants[currentIdx];
+                if (!variant) return;
+                const cartIdx = getCartItemIndex(productId, variant.label);
+                if (cartIdx >= 0) {
+                    cart[cartIdx].quantity += 1;
+                } else {
+                    cart.push({
+                        productId: productId,
+                        variantLabel: variant.label,
+                        price: variant.price,
+                        title: product.title,
+                        emoji: product.emoji,
+                        quantity: 1
+                    });
+                }
+                saveCart();
+                updateCartUI();
+                cartBadge.classList.remove('bounce');
+                void cartBadge.offsetWidth;
+                cartBadge.classList.add('bounce');
+                showToast(`已添加「${product.title} - ${variant.label}」¥${variant.price} ✨`);
+            }
+
+            function removeFromCart(productId, variantLabel) {
+                const idx = getCartItemIndex(productId, variantLabel);
+                if (idx >= 0) {
+                    cart.splice(idx, 1);
+                    saveCart();
+                    updateCartUI();
+                    showToast('已从购物车移除');
+                }
+            }
+
+            function updateCartQuantity(productId, variantLabel, delta) {
+                const idx = getCartItemIndex(productId, variantLabel);
+                if (idx >= 0) {
+                    cart[idx].quantity += delta;
+                    if (cart[idx].quantity <= 0) {
+                        cart.splice(idx, 1);
+                    }
+                    saveCart();
+                    updateCartUI();
+                }
+            }
+
+            function getCartTotal() {
+                return cart.reduce((t, i) => t + i.price * i.quantity, 0);
+            }
+
+            function getCartCount() {
+                return cart.reduce((c, i) => c + i.quantity, 0);
+            }
+
+            function updateCartUI() {
+                const count = getCartCount();
+                if (count > 0) {
+                    cartBadge.style.display = 'flex';
+                    cartBadge.textContent = count > 99 ? '99+' : count;
+                } else {
+                    cartBadge.style.display = 'none';
+                }
+                cartTotal.textContent = '¥' + getCartTotal().toFixed(2);
+                btnCheckout.disabled = cart.length === 0;
+                renderCartItems();
+            }
+
+            function renderCartItems() {
+                if (cart.length === 0) {
+                    cartItemsList.innerHTML =
+                        '<div class="cart-empty">购物车空空如也<br>去挑选心仪的钧瓷吧~</div>';
+                } else {
+                    cartItemsList.innerHTML = cart.map((item, idx) => `
+                        <div class="cart-item">
+                            <span class="cart-item-emoji">${item.emoji}</span>
+                            <div class="cart-item-info">
+                                <div class="ci-name">${item.title}</div>
+                                <div class="ci-variant">${item.variantLabel}</div>
+                                <div class="ci-price">¥${item.price.toFixed(2)}</div>
+                            </div>
+                            <div class="cart-item-qty">
+                                <button onclick="window._junCartQty('${item.productId}','${item.variantLabel.replace(/'/g, "\\'")}',-1)" aria-label="减少">−</button>
+                                <span>${item.quantity}</span>
+                                <button onclick="window._junCartQty('${item.productId}','${item.variantLabel.replace(/'/g, "\\'")}',1)" aria-label="增加">+</button>
+                            </div>
+                            <button class="cart-item-remove" onclick="window._junCartRemove('${item.productId}','${item.variantLabel.replace(/'/g, "\\'")}')" aria-label="移除">🗑️</button>
+                        </div>
+                    `).join('');
+                }
+            }
+
+            window._junAddToCart = addToCart;
+            window._junCartQty = function(pid, vl, d) { updateCartQuantity(pid, vl, d); };
+            window._junCartRemove = function(pid, vl) { removeFromCart(pid, vl); };
+
+            // ==================== 渲染产品卡片 ====================
+            function renderProductCards() {
+                productsGrid.innerHTML = products.map(p => {
+                    const isCombo = p.type === 'combo';
+                    const comboClass = isCombo ? ' combo-card' : '';
+                    const comboBadgeHTML = isCombo ?
+                        '<span class="combo-badge">🔥 超值套餐</span>' : '';
+                    const variant = p.variants[0];
+                    const initialPriceHTML = p.type === 'single' ?
+                        `<span class="currency">¥</span>${variant.price.toFixed(2)}<span class="price-range"> / ${variant.label}</span>` :
+                        `<span class="currency">¥</span>${variant.price.toFixed(2)}`;
+
+                    const slidesHTML = p.variants.map((v, i) => `
+                        <div class="carousel-slide">
+                            <img src="${v.image}" alt="${p.title} - ${v.label}" loading="lazy" onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,${p.color} 0%,${p.color}cc 50%,#fdf8f0 100%)';this.parentElement.innerHTML+='<span style=position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:2.5rem;z-index:2;>${p.emoji}</span>';">
+                            <span class="slide-label">${v.label}</span>
+                        </div>
+                    `).join('');
+
+                    const dotsHTML = p.variants.map((_, i) => `
+                        <span class="dot${i === 0 ? ' active' : ''}" onclick="window._junGoToSlide('${p.id}',${i})" title="${p.variants[i].label}"></span>
+                    `).join('');
+
+                    const tagsHTML = p.tags.map(t => `<span class="card-tag">${t}</span>`).join('');
+
+                    return `
+                    <div class="product-card${comboClass}" data-product-id="${p.id}">
+                        ${comboBadgeHTML}
+                        <div class="carousel-wrapper"
+                             onmouseenter="window._junStopAuto('${p.id}')"
+                             onmouseleave="window._junStartAuto('${p.id}')">
+                            <div class="carousel-track" data-product-id="${p.id}" style="transform:translateX(0);">
+                                ${slidesHTML}
+                            </div>
+                            <button class="carousel-arrow carousel-arrow-left" onclick="window._junPrevSlide('${p.id}')" aria-label="上一张">◀</button>
+                            <button class="carousel-arrow carousel-arrow-right" onclick="window._junNextSlide('${p.id}')" aria-label="下一张">▶</button>
+                            <div class="carousel-dots" data-product-id="${p.id}">
+                                ${dotsHTML}
+                            </div>
+                        </div>
+                        <div class="card-series-row">
+                            <span class="card-series-tag">${p.series}</span>
+                            <span class="card-variant-indicator" id="variant-indicator-${p.id}">1/${p.variants.length}</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-title">${p.title}</div>
+                            <div class="card-subtitle">${p.subtitle}</div>
+                            <div class="card-desc">${p.desc}</div>
+                            <div class="card-tags">${tagsHTML}</div>
+                            <div class="card-price-row">
+                                <div class="card-price" id="price-${p.id}">${initialPriceHTML}</div>
+                                <button class="btn-add-cart" data-product-id="${p.id}" onclick="window._junAddToCart('${p.id}')">加入购物车</button>
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }).join('');
+
+                // 启动所有轮播
+                products.forEach(p => {
+                    startAutoPlay(p.id);
+                });
+            }
+
+            // 挂载自动播放控制
+            window._junStopAuto = function(pid) { stopAutoPlay(pid); };
+            window._junStartAuto = function(pid) { startAutoPlay(pid); };
+
+            // ==================== 购物车侧边栏 ====================
+            function openCart() {
+                cartSidebar.classList.add('open');
+                cartOverlay.classList.add('open');
+                document.body.style.overflow = 'hidden';
+                updateCartUI();
+                navLinks.classList.remove('mobile-open');
+                mobileMenuToggle.classList.remove('open');
+            }
+
+            function closeCart() {
+                cartSidebar.classList.remove('open');
+                cartOverlay.classList.remove('open');
+                document.body.style.overflow = '';
+            }
+            document.getElementById('navCartBtn').addEventListener('click', openCart);
+            document.getElementById('cartCloseBtn').addEventListener('click', closeCart);
+            cartOverlay.addEventListener('click', closeCart);
+            document.addEventListener('keydown', e => {
+                if (e.key === 'Escape' && cartSidebar.classList.contains('open')) closeCart();
+            });
+
+            // ==================== 移动端菜单 ====================
+            mobileMenuToggle.addEventListener('click', () => {
+                const isOpen = navLinks.classList.toggle('mobile-open');
+                mobileMenuToggle.classList.toggle('open', isOpen);
+                if (isOpen && cartSidebar.classList.contains('open')) closeCart();
+            });
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('mobile-open');
+                    mobileMenuToggle.classList.remove('open');
+                });
+            });
+
+            // ==================== 导航滚动效果 ====================
+            function updateNavbarScroll() {
+                if (window.scrollY > 20) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            }
+            window.addEventListener('scroll', updateNavbarScroll, { passive: true });
+            updateNavbarScroll();
+
+            const allNavAnchors = navLinks.querySelectorAll('a[href^="#"]');
+            const sections = {};
+            allNavAnchors.forEach(a => {
+                const id = a.getAttribute('href').substring(1);
+                const el = document.getElementById(id);
+                if (el) sections[id] = el;
+            });
+
+            function updateActiveNav() {
+                let current = 'home';
+                const pos = window.scrollY + 100;
+                for (const [id, el] of Object.entries(sections)) {
+                    if (el.offsetTop <= pos) current = id;
+                }
+                allNavAnchors.forEach(a => {
+                    a.classList.toggle('active', a.getAttribute('href').substring(1) === current);
+                });
+            }
+            window.addEventListener('scroll', updateActiveNav, { passive: true });
+            updateActiveNav();
+
+            // ==================== 结算 ====================
+            btnCheckout.addEventListener('click', () => {
+                if (cart.length === 0) return;
+                const total = getCartTotal();
+                const count = getCartCount();
+                showToast(`🎉 模拟结算成功！共 ${count} 件商品，总计 ¥${total.toFixed(2)}`);
+                cart = [];
+                saveCart();
+                updateCartUI();
+                setTimeout(closeCart, 700);
+            });
+
+            // ==================== 初始化 ====================
+            renderProductCards();
+            updateCartUI();
+            console.log('🏺 钧有遗香 - 6款产品 · 轮播图展示 · 3列布局');
+        })();
+    </script>
+</body>
+</html>
